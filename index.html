@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SignalTrace — Industry Intelligence Pipeline</title>
+  <meta name="description" content="A source-traceable industry brief generator.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div><p class="eyebrow">SIGNALTRACE / v1.0</p><h1>Industry Intelligence Pipeline</h1><p class="lede">Turn company and report evidence into a reviewable industry brief — with a findable citation attached to every signal.</p></div>
+    <div class="hero-note">Designed for evidence, not guesses<br><span>Static · no account required</span></div>
+  </header>
+
+  <main>
+    <section class="panel controls" aria-label="Pipeline inputs">
+      <div class="field"><label for="company">Company</label><input id="company" value="Coupang" autocomplete="organization"></div>
+      <div class="field"><label for="market">Primary market</label><input id="market" value="South Korea"></div>
+      <button id="run" class="primary">Generate brief</button>
+      <button id="loadExample" class="secondary">Load Coupang example</button>
+    </section>
+
+    <section class="panel upload">
+      <div><p class="eyebrow">OPTIONAL EVIDENCE INGESTION</p><h2>Import library reports</h2><p>Choose an IBISWorld or MarketResearch.com PDF from your device. The file stays in this browser; its extracted page text is searchable below and can be cited by document and page.</p></div>
+      <label class="file-button" for="reports">Add PDF report(s)<input id="reports" type="file" accept="application/pdf" multiple></label>
+      <div id="ingestStatus" class="muted">No reports imported.</div>
+      <div id="reportList"></div>
+    </section>
+
+    <section class="toolbar" aria-label="Export brief">
+      <p id="status">Example loaded: 8 cited signals, 3 explicit evidence gaps.</p>
+      <div><button id="downloadJson">Download JSON</button><button id="downloadMd">Download Markdown</button><button id="print">Print / Save PDF</button></div>
+    </section>
+
+    <article id="brief" class="brief" aria-live="polite"></article>
+  </main>
+  <footer>SignalTrace uses public sources in the included example. Imported report content is processed locally and is never uploaded by this site.</footer>
+  <script defer src="app.js"></script>
+</body>
+</html>
